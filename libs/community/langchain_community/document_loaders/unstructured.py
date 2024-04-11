@@ -189,7 +189,7 @@ def get_elements_from_api(
     api_url: str = "https://api.unstructured.io/general/v0/general",
     api_key: str = "",
     **unstructured_kwargs: Any,
-) -> List:
+) -> List[list]:
     """Retrieve a list of elements from the `Unstructured API`."""
     if is_list := isinstance(file_path, list):
         file_path = [str(path) for path in file_path]
@@ -204,9 +204,7 @@ def get_elements_from_api(
             **unstructured_kwargs,
         )
 
-        elements = []
-        for _elements in _doc_elements:
-            elements.extend(_elements)
+        elements = [for _elements in _doc_elements]
 
         return elements
     else:
